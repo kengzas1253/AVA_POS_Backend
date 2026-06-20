@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+coverage
+npm-debug.log
+yarn-error.log
+*.log
+
+# PostgreSQL Docker data
+docker/db/

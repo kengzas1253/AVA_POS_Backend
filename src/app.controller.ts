@@ -1,0 +1,17 @@
+import { Controller, Get } from '@nestjs/common';
+import { AppService } from './app.service';
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getApiStatus() {
+    return this.appService.getApiStatus();
+  }
+
+  @Get('test-connect')
+  testConnect() {
+    return this.appService.getApiStatus();
+  }
+}

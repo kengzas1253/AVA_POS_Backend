@@ -1,0 +1,46 @@
+GET http://localhost:2021/pos-devices
+POST http://localhost:2021/auth/register
+{
+    "status": "ok",
+    "message": "User registered successfully",
+    "data": {
+        "user_id": "7ad80ebe-1c81-4abf-a530-43327f681c0d",
+        "username": "kengzas1253@gmail.com",
+        "full_name": "Naratip Thongtaluang",
+        "phone_number": "0816769629",
+        "role": "owner",
+        "is_active": true,
+        "last_login_at": null,
+        "created_at": "2026-06-17T06:00:36.375Z",
+        "updated_at": "2026-06-17T06:00:36.375Z"
+    }
+}
+POST http://localhost:2021/auth/login
+Response
+{
+    "status": "ok",
+    "message": "Login successfully",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWQ4MGViZS0xYzgxLTRhYmYtYTUzMC00MzMyN2Y2ODFjMGQiLCJ1c2VybmFtZSI6Imtlbmd6YXMxMjUzQGdtYWlsLmNvbSIsInJvbGUiOiJvd25lciIsImlhdCI6MTc4MTcwMTM2NCwiZXhwIjoxNzgxNzg3NzY0fQ.vmzr9MmOyEIq-7TbMNqwC6-us6GCSpt3s1ANl1f3jhE",
+    "data": {
+        "user_id": "7ad80ebe-1c81-4abf-a530-43327f681c0d",
+        "username": "kengzas1253@gmail.com",
+        "full_name": "Naratip Thongtaluang",
+        "phone_number": "0816769629",
+        "role": "owner",
+        "is_active": true,
+        "last_login_at": "2026-06-17T13:02:44.306Z",
+        "created_at": "2026-06-17T06:00:36.375Z",
+        "updated_at": "2026-06-17T06:02:44.315Z"
+    }
+}
+POST http://localhost:2021/auth/login-pin
+
+POST http://localhost:2021/auth/refresh
+{
+    "refresh_token": "<refresh_token จาก login>"
+}
+
+POST http://localhost:2021/auth/logout
+{
+    "refresh_token": "<refresh_token จาก login หรือ refresh ล่าสุด>"
+}
