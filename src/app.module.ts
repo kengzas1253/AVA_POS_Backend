@@ -5,6 +5,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { CategoriesModule } from './categories/categories.module';
+import { FavoritesModule } from './favorites/favorites.module';
+import { ImagesModule } from './images/images.module';
+import { PosModule } from './pos/pos.module';
 import { PosDevicesModule } from './pos-devices/pos-devices.module';
 import { ProductsModule } from './products/products.module';
 
@@ -28,6 +31,9 @@ import { ProductsModule } from './products/products.module';
     }),
     AuthModule,
     CategoriesModule,
+    FavoritesModule,
+    ImagesModule,
+    PosModule,
     PosDevicesModule,
     ProductsModule,
   ],

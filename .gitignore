@@ -5,6 +5,8 @@ coverage
 npm-debug.log
 yarn-error.log
 *.log
+Images/*
+!Images/.gitkeep
 
 # PostgreSQL Docker data
 docker/db/

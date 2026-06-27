@@ -3,7 +3,6 @@ import {
   IsBoolean,
   IsEnum,
   IsInt,
-  IsNotEmpty,
   IsNumber,
   IsOptional,
   IsString,
@@ -16,7 +15,7 @@ import {
   ProductStatus,
 } from '../entities/product.entity';
 
-export class CreateProductDto {
+export class UpdateProductDto {
   @IsOptional()
   @IsString()
   @Length(1, 50)
@@ -27,10 +26,10 @@ export class CreateProductDto {
   @Length(1, 100)
   barcode?: string;
 
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
-  @MaxLength(255)
-  product_name: string;
+  @Length(1, 255)
+  product_name?: string;
 
   @IsOptional()
   @Type(() => Number)

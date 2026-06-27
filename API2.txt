@@ -1,0 +1,12 @@
+GET    /favorite-groups
+GET    /favorite-groups/:id
+POST   /favorite-groups
+PUT    /favorite-groups/:id
+DELETE /favorite-groups/:id
+
+GET    /favorite-items
+GET    /favorite-items?favorite_group_id=1
+GET    /favorite-items/:id
+POST   /favorite-items
+PUT    /favorite-items/:id
+DELETE /favorite-items/:id
