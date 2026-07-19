@@ -99,6 +99,8 @@ Authorization: Bearer <access_token>
 | POST | `/pos-devices/register` | ไม่ต้องใช้ | ลงทะเบียนหรืออัปเดตเครื่อง POS |
 | GET | `/pos-devices` | ไม่ต้องใช้ | ดูเครื่อง POS ทั้งหมด |
 | GET | `/pos-devices/:machine_id` | ไม่ต้องใช้ | ดูเครื่อง POS จาก Machine ID |
+| PUT | `/pos-devices/:machine_id` | ไม่ต้องใช้ | แก้ไขเครื่อง POS จาก Machine ID |
+| DELETE | `/pos-devices/:machine_id` | ไม่ต้องใช้ | ลบเครื่อง POS จาก Machine ID |
 | POST | `/categories` | 🔒 | เพิ่มหมวดหมู่ |
 | GET | `/categories` | 🔒 | ดูหมวดหมู่ทั้งหมด |
 | GET | `/categories/:id` | 🔒 | ดูหมวดหมู่ตาม ID |
@@ -313,6 +315,31 @@ Response:
 
 ```http
 GET /pos-devices/550e8400-e29b-41d4-a716-446655440000
+```
+
+### `PUT /pos-devices/:machine_id`
+
+ไม่ต้องใช้ access token และส่งเฉพาะ field ที่ต้องการแก้ไขได้
+
+```json
+{
+  "device_name": "POS Counter 1",
+  "hostname": "POS-01",
+  "ip_address": "192.168.1.11",
+  "os_platform": "win32",
+  "os_release": "11",
+  "app_version": "1.0.1",
+  "printer_name": "Receipt Printer",
+  "printer_type": "USB"
+}
+```
+
+### `DELETE /pos-devices/:machine_id`
+
+ไม่ต้องใช้ access token
+
+```http
+DELETE /pos-devices/550e8400-e29b-41d4-a716-446655440000
 ```
 
 ## Categories 🔒

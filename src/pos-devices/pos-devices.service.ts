@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { RegisterPosDeviceDto } from './dto/register-pos-device.dto';
+import { UpdatePosDeviceDto } from './dto/update-pos-device.dto';
 import { PosDevice } from './entities/pos-device.entity';
 
 @Injectable()
@@ -48,5 +49,47 @@ export class PosDevicesService {
     }
 
     return device;
+  }
+
+  async update(machineId: string, updatePosDeviceDto: UpdatePosDeviceDto) {
+    const device = await this.posDeviceRepository.findOne({
+      where: { machine_id: machineId },
+    });
+
+    if (!device) {
+      throw new NotFoundException('POS device not found');
+    }
+
+    const updatedDevice = this.posDeviceRepository.merge(
+      device,
+      updatePosDeviceDto,
+    );
+    const savedDevice = await this.posDeviceRepository.save(updatedDevice);
+
+    return {
+      status: 'ok',
+      message: 'POS device updated successfully',
+      data: savedDevice,
+    };
+  }
+
+  async remove(machineId: string) {
+    const device = await this.posDeviceRepository.findOne({
+      where: { machine_id: machineId },
+    });
+
+    if (!device) {
+      throw new NotFoundException('POS device not found');
+    }
+
+    await this.posDeviceRepository.remove(device);
+
+    return {
+      status: 'ok',
+      message: 'POS device deleted successfully',
+      data: {
+        machine_id: machineId,
+      },
+    };
   }
 }

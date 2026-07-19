@@ -38,6 +38,12 @@ export class PosDevice {
   @Column({ nullable: true })
   printer_type?: string;
 
+  @Column({ nullable: true })
+  printer_slip?: string;
+
+  @Column({ nullable: true })
+  paper_slip_size?: string;
+
   @CreateDateColumn()
   created_at: Date;
 

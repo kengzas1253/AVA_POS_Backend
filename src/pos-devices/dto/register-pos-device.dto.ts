@@ -34,4 +34,12 @@ export class RegisterPosDeviceDto {
   @IsString()
   @IsOptional()
   printer_type?: string;
+
+  @IsString()
+  @IsOptional()
+  printer_slip?: string;
+
+  @IsString()
+  @IsOptional()
+  paper_slip_size?: string;
 }

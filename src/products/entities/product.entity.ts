@@ -4,15 +4,18 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Category } from '../../categories/entities/category.entity';
+import { ProductUnit } from '../../product-units/entities/product-unit.entity';
 
 export enum ProductPriceMode {
   FIXED_PRICE = 'FIXED_PRICE',
   OPEN_PRICE = 'OPEN_PRICE',
   WEIGHT_PRICE = 'WEIGHT_PRICE',
+  SERVICE_PRICE = 'SERVICE_PRICE',
 }
 
 export enum ProductStatus {
@@ -79,4 +82,7 @@ export class Product {
 
   @UpdateDateColumn({ type: 'timestamp' })
   updated_at: Date;
+
+  @OneToMany(() => ProductUnit, (productUnit) => productUnit.product)
+  productUnits: ProductUnit[];
 }

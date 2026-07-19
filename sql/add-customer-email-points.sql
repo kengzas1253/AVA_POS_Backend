@@ -1,0 +1,8 @@
+ALTER TABLE customers
+ADD COLUMN IF NOT EXISTS email VARCHAR(255);
+
+ALTER TABLE customers
+ADD COLUMN IF NOT EXISTS points_balance INTEGER NOT NULL DEFAULT 0;
+
+CREATE INDEX IF NOT EXISTS idx_customers_email
+ON customers (email);

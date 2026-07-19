@@ -1,4 +1,4 @@
-import { Type } from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 import {
   IsBoolean,
   IsEnum,
@@ -17,6 +17,7 @@ import {
 
 export class UpdateProductDto {
   @IsOptional()
+  @Transform(({ value }) => (value === '' ? undefined : value))
   @IsString()
   @Length(1, 50)
   sku?: string;
@@ -62,13 +63,13 @@ export class UpdateProductDto {
   @Type(() => Number)
   @IsNumber({ maxDecimalPlaces: 3 })
   @Min(0)
-  stock_qty?: number;
+  stock_qty?: number | null;
 
   @IsOptional()
   @Type(() => Number)
   @IsNumber({ maxDecimalPlaces: 3 })
   @Min(0)
-  min_stock_qty?: number;
+  min_stock_qty?: number | null;
 
   @IsOptional()
   @IsBoolean()

@@ -1,0 +1,3 @@
+ALTER TABLE pos_devices
+  ADD COLUMN IF NOT EXISTS printer_slip VARCHAR(255),
+  ADD COLUMN IF NOT EXISTS paper_slip_size VARCHAR(255);
